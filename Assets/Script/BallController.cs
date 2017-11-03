@@ -74,6 +74,7 @@ public class BallController : MonoBehaviour
 			{
 				m_GameoverText.SetActive(false);
 				m_GameStartText.SetActive(true);
+				Score.m_nScore = 0;
 				transform.position = m_vStartPos;
 			}
 		}

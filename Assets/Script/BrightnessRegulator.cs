@@ -17,10 +17,15 @@ public class BrightnessRegulator : MonoBehaviour
 	// ターゲットのデフォルトの色
 	Color defaultColor = Color.white;
 
+	// スコア
+	private int m_nSmallStar = 1;
+	private int m_nLargeStar = 10;
+	private int m_nSmallCloud = 20;
+	private int m_nBigCloud = 30;
+
 	// Use this for initialization
 	void Start()
 	{
-
 		// タグによって光らせる色を変える
 		if (tag == "SmallStarTag")
 		{
@@ -64,5 +69,22 @@ public class BrightnessRegulator : MonoBehaviour
 	{
 		//角度を180に設定
 		this.degree = 180;
+
+		// スコア設定
+		switch (gameObject.tag)
+		{
+			case "SmallStarTag":
+				Score.m_nScore += m_nSmallStar;
+				break;
+			case "LargeStarTag":
+				Score.m_nScore += m_nLargeStar;
+				break;
+			case "SmallCloudTag":
+				Score.m_nScore += m_nSmallCloud;
+				break;
+			case "LargeCloudTag":
+				Score.m_nScore += m_nBigCloud;
+				break;
+		}
 	}
 }
